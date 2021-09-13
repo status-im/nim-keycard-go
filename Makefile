@@ -8,5 +8,5 @@ build-keycard-go:
 build: build-keycard-go
 	nim c --passL:"-L$(KEYCARD_GO_PATH)/build/libkeycard" --passL="-lkeycard" keycard.nim
 
-run: build-keycard-go
+run: build
 	LD_LIBRARY_PATH=$(KEYCARD_GO_PATH)/build/libkeycard ./keycard
