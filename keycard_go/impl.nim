@@ -1,17 +1,17 @@
-proc Start*(): cstring {.importc: "Start".}
-proc Stop*(): cstring {.importc: "Stop".}
-proc Select*(): cstring {.importc: "Select".}
-proc Pair*(params: cstring): cstring {.importc: "Pair".}
-proc OpenSecureChannel*(params: cstring): cstring {.importc: "OpenSecureChannel".}
-proc VerifyPin*(params: cstring): cstring {.importc: "VerifyPin".}
-proc GenerateKey*(params: cstring): cstring {.importc: "GenerateKey".}
-proc DeriveKey*(params: cstring): cstring {.importc: "DeriveKey".}
-proc SignWithPath*(params: cstring): cstring {.importc: "SignWithPath".}
-proc ExportKey*(params: cstring): cstring {.importc: "ExportKey".}
-proc LoadSeed*(params: cstring): cstring {.importc: "LoadSeed".}
-proc Init*(params: cstring): cstring {.importc: "Init".}
-proc Unpair*(params: cstring): cstring {.importc: "Unpair".}
-proc GetStatusApplication*(): cstring {.importc: "GetStatusApplication".}
-proc ChangePin*(): cstring {.importc: "ChangePin".}
-proc ChangePuk*(): cstring {.importc: "ChangePuk".}
-proc ChangePairingPassword*(): cstring {.importc: "ChangePairingPassword".}
+proc start*(): cstring {.importc: "Start".}
+proc stop*(): cstring {.importc: "Stop".}
+proc select*(): cstring {.importc: "Select".}
+proc pair*(params: cstring): cstring {.importc: "Pair".}
+proc openSecureChannel*(params: cstring): cstring {.importc: "OpenSecureChannel".}
+proc verifyPin*(params: cstring): cstring {.importc: "VerifyPin".}
+proc generateKey*(params: cstring): cstring {.importc: "GenerateKey".}
+proc deriveKey*(params: cstring): cstring {.importc: "DeriveKey".}
+proc signWithPath*(params: cstring): cstring {.importc: "SignWithPath".}
+proc exportKey*(params: cstring): cstring {.importc: "ExportKey".}
+proc loadSeed*(params: cstring): cstring {.importc: "LoadSeed".}
+proc init*(params: cstring): cstring {.importc: "Init".}
+proc unpair*(params: cstring): cstring {.importc: "Unpair".}
+proc getStatusApplication*(): cstring {.importc: "GetStatusApplication".}
+proc changePin*(): cstring {.importc: "ChangePin".}
+proc changePuk*(): cstring {.importc: "ChangePuk".}
+proc changePairingPassword*(): cstring {.importc: "ChangePairingPassword".}
