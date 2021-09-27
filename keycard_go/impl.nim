@@ -15,3 +15,4 @@ proc getStatusApplication*(): cstring {.importc: "GetStatusApplication".}
 proc changePin*(): cstring {.importc: "ChangePin".}
 proc changePuk*(): cstring {.importc: "ChangePuk".}
 proc changePairingPassword*(): cstring {.importc: "ChangePairingPassword".}
+proc free*(param: pointer) {.importc: "Free".}
