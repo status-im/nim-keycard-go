@@ -1,10 +1,11 @@
 import ./keycard_go/impl as go_shim
 
-var x = $go_shim.Start()
-echo x
+proc start*(): string =
+  var funcOut = go_shim.start()
+  defer: go_shim.free(funcOut)
+  return $funcOut
 
-x = $go_shim.Select()
-echo x
-
-# x = $go_shim.Stop()
-# echo x
+proc stop*(): string =
+  var funcOut = go_shim.stop()
+  defer: go_shim.free(funcOut)
+  return $funcOut
