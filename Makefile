@@ -3,7 +3,7 @@
 KEYCARD_GO_PATH=./go/keycard
 
 build: build-keycard-go
-	nim c --passL:"-L$(KEYCARD_GO_PATH)/build/libkeycard" --passL="-lkeycard" keycard.nim
+	nim c --passL:"-L$(KEYCARD_GO_PATH)/build/libkeycard" --passL="-lkeycard" keycard_go.nim
 
 build-keycard-go:
 	cd $(KEYCARD_GO_PATH) && make build-lib
