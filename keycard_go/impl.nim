@@ -1,3 +1,5 @@
+type KeycardSignalCallback* = proc(signal: cstring): void {.cdecl.}
+
 proc start*(): cstring {.importc: "Start".}
 proc stop*(): cstring {.importc: "Stop".}
 proc select*(): cstring {.importc: "Select".}
@@ -16,3 +18,5 @@ proc changePin*(): cstring {.importc: "ChangePin".}
 proc changePuk*(): cstring {.importc: "ChangePuk".}
 proc changePairingPassword*(): cstring {.importc: "ChangePairingPassword".}
 proc free*(param: pointer) {.importc: "Free".}
+proc setSignalEventCallback*(callback: KeycardSignalCallback) {.importc: "SetSignalEventCallback".}
+
