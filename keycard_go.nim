@@ -1,5 +1,7 @@
 import ./keycard_go/impl as go_shim
 
+export KeycardSignalCallback
+
 proc start*(): string =
   var funcOut = go_shim.start()
   defer: go_shim.free(funcOut)
@@ -15,3 +17,5 @@ proc select*(): string =
   defer: go_shim.free(funcOut)
   return $funcOut
 
+proc setSignalEventCallback*(callback: KeycardSignalCallback) =
+  go_shim.setSignalEventCallback(callback)
