@@ -37,5 +37,10 @@ proc exportKey*(params: cstring): string =
   defer: go_shim.free(funcOut)
   return $funcOut
 
+proc getStatusApplication*(): string =
+  var funcOut = go_shim.getStatusApplication()
+  defer: go_shim.free(funcOut)
+  return $funcOut
+
 proc setSignalEventCallback*(callback: KeycardSignalCallback) =
   go_shim.setSignalEventCallback(callback)
