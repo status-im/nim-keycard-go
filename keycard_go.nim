@@ -47,5 +47,10 @@ proc unpair*(params: cstring): string =
   defer: go_shim.free(funcOut)
   return $funcOut
 
+proc generateKey*(): string =
+  var funcOut = go_shim.generateKey()
+  defer: go_shim.free(funcOut)
+  return $funcOut
+
 proc setSignalEventCallback*(callback: KeycardSignalCallback) =
   go_shim.setSignalEventCallback(callback)
