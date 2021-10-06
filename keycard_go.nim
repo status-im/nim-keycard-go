@@ -42,5 +42,10 @@ proc getStatusApplication*(): string =
   defer: go_shim.free(funcOut)
   return $funcOut
 
+proc unpair*(params: cstring): string =
+  var funcOut = go_shim.unpair(params)
+  defer: go_shim.free(funcOut)
+  return $funcOut
+
 proc setSignalEventCallback*(callback: KeycardSignalCallback) =
   go_shim.setSignalEventCallback(callback)
