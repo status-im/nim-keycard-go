@@ -6,7 +6,7 @@ proc select*(): cstring {.importc: "Select".}
 proc pair*(params: cstring): cstring {.importc: "Pair".}
 proc openSecureChannel*(params: cstring): cstring {.importc: "OpenSecureChannel".}
 proc verifyPin*(params: cstring): cstring {.importc: "VerifyPin".}
-proc generateKey*(params: cstring): cstring {.importc: "GenerateKey".}
+proc generateKey*(): cstring {.importc: "GenerateKey".}
 proc deriveKey*(params: cstring): cstring {.importc: "DeriveKey".}
 proc signWithPath*(params: cstring): cstring {.importc: "SignWithPath".}
 proc exportKey*(params: cstring): cstring {.importc: "ExportKey".}
