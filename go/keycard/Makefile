@@ -18,12 +18,17 @@ else ifeq ($(detected_OS),Windows)
  LIB_EXT:= dll
  LIBKEYCARD_EXT := dll
 else
- LIB_EXT := so
+ SHARED_LIB_CGO_LDFLAGS := CGO_LDFLAGS="-Wl,-soname,libkeycard.so.0"
+ LIB_EXT := so.0
 endif
 
 build-lib:
 	mkdir -p $(BUILD)/libkeycard
-	@echo "Building static library..."
-	$(CGOFLAGS) go build -buildmode=c-shared -o $(BUILD)/libkeycard/libkeycard.$(LIB_EXT) .
-	@echo "Static library built:"
+	@echo "Building dynamic library..."
+	$(CGOFLAGS) $(SHARED_LIB_CGO_LDFLAGS) go build -buildmode=c-shared -o $(BUILD)/libkeycard/libkeycard.$(LIB_EXT) . 
+ifeq ($(detected_OS),Linux)
+	cd $(BUILD)/libkeycard/ && \
+	ln -f -s ./libkeycard.$(LIB_EXT) ./libkeycard.so
+endif
+	@echo "Dynamic library built:"
 	@ls -la $(BUILD)/libkeycard/*
