@@ -2,53 +2,23 @@ import ./keycard_go/impl as go_shim
 
 export KeycardSignalCallback
 
-proc start*(): string =
-  var funcOut = go_shim.start()
+proc keycardInitFlow*(storageDir: string): string =
+  var funcOut = go_shim.keycardInitFlow(storageDir.cstring)
   defer: go_shim.free(funcOut)
   return $funcOut
 
-proc stop*(): string =
-  var funcOut = go_shim.stop()
+proc keycardStartFlow*(flowType: int, jsonParams: string): string =
+  var funcOut = go_shim.keycardStartFlow(flowType.cint, jsonParams.cstring)
   defer: go_shim.free(funcOut)
   return $funcOut
 
-proc select*(): string =
-  var funcOut = go_shim.select()
+proc keycardResumeFlow*(jsonParams: string): string =
+  var funcOut = go_shim.keycardResumeFlow(jsonParams.cstring)
   defer: go_shim.free(funcOut)
   return $funcOut
 
-proc pair*(params: cstring): string =
-  var funcOut = go_shim.pair(params)
-  defer: go_shim.free(funcOut)
-  return $funcOut
-
-proc openSecureChannel*(params: cstring): string =
-  var funcOut = go_shim.openSecureChannel(params)
-  defer: go_shim.free(funcOut)
-  return $funcOut
-
-proc verifyPin*(params: cstring): string =
-  var funcOut = go_shim.verifyPin(params)
-  defer: go_shim.free(funcOut)
-  return $funcOut
-
-proc exportKey*(params: cstring): string =
-  var funcOut = go_shim.exportKey(params)
-  defer: go_shim.free(funcOut)
-  return $funcOut
-
-proc getStatusApplication*(): string =
-  var funcOut = go_shim.getStatusApplication()
-  defer: go_shim.free(funcOut)
-  return $funcOut
-
-proc unpair*(params: cstring): string =
-  var funcOut = go_shim.unpair(params)
-  defer: go_shim.free(funcOut)
-  return $funcOut
-
-proc generateKey*(): string =
-  var funcOut = go_shim.generateKey()
+proc keycardCancelFlow*(): string =
+  var funcOut = go_shim.keycardCancelFlow()
   defer: go_shim.free(funcOut)
   return $funcOut
 
