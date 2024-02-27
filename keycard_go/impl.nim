@@ -1,4 +1,7 @@
-type KeycardSignalCallback* = proc(signal: cstring): void {.cdecl.}
+# go functions do not raise nim exceptions and do not interact with the Nim gc
+{.push raises: [], gcsafe.}
+
+type KeycardSignalCallback* = proc(signal: cstring): void {.cdecl, gcsafe, raises: [].}
 
 proc free*(param: pointer) {.importc: "Free".}
 proc setSignalEventCallback*(callback: KeycardSignalCallback) {.importc: "KeycardSetSignalEventCallback".}
